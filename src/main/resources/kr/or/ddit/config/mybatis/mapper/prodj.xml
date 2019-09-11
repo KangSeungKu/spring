@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="prodj">
+	<select id="getprodJList" parameterType="String" resultType="prodjVo">
+		select a.lprod_nm, a.lprod_gu, c.buyer_name, b.prod_id, b.prod_name, b.prod_price
+		  from lprod a, prod b, buyer c
+		 where a.lprod_gu=b.prod_lgu
+		   and b.prod_buyer=c.buyer_id
+		   and a.lprod_gu=#{data}
+	</select>
+</mapper>
