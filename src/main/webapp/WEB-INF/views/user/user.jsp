@@ -32,7 +32,7 @@ $(document).ready(function(){
 </head>
 
 <body>
-<form id="frm" action="${cp }/userModify" method="get">
+<form id="frm" action="${cp }/user/userModify" method="get">
 	<input type="hidden" id="userId" name="userId" value="${user.userId }"/>
 </form>
 
@@ -52,7 +52,7 @@ $(document).ready(function(){
 						<label for="userNm" class="col-sm-2 control-label">사용자 사진</label>
 						<div class="col-sm-10">
 							<%-- <img src="/jsp/${user.realfilename2 }"> --%>
-							<img src="${cp }/userPicture?userId=${user.userId }"/>
+							<img src="${cp }/user/userPicture?userId=${user.userId }"/>
 						</div>
 					</div>
 					

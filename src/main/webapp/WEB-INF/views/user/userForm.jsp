@@ -3,6 +3,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -25,12 +26,12 @@
 		
 		// 사용자 등록 버튼 클릭 이벤트 핸들러
 		$("#regBtn").on("click", function(){
-			var userIdValidationChk = /^([a-zA-Z\d\.@]){5,20}$/.test($("#userId").val());
+			/* var userIdValidationChk = /^([a-zA-Z\d\.@]){5,20}$/.test($("#userId").val());
 			if(userIdValidationChk == false){
 				alert("사용자 아이디가 유효하지 않습니다.");
 				$("#userId").focus();
 				return false;
-			}
+			} */
 			
 			// submit;
 			$("#frm").submit();
@@ -75,7 +76,7 @@
 </div>
 <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
 				
-<form class="form-horizontal" id="frm" role="form" action="${cp }/userForm" method="post" enctype="multipart/form-data">
+<form class="form-horizontal" id="frm" role="form" action="${cp }/user/userForm" method="post" enctype="multipart/form-data">
 
 					<div class="form-group">
 						<label for="userId" class="col-sm-2 control-label">사용자 사진</label>
@@ -90,7 +91,7 @@
 						<div class="col-sm-10">
 							<input type="text" class="form-control" id="userId" name="userId"
 								placeholder="사용자 아이디" value="${param.userId }">
-							${userIdMsg }
+							<font color="red"><form:errors path="user.userId"/></font>
 						</div>
 					</div>
 

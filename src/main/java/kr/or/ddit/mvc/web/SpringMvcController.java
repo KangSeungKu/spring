@@ -28,6 +28,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import kr.or.ddit.exception.InternalException;
 import kr.or.ddit.exception.NoFileException;
 import kr.or.ddit.mvc.model.Main;
 import kr.or.ddit.user.model.User;
@@ -206,10 +207,14 @@ public class SpringMvcController {
 	}
 	
 	@RequestMapping("error500")
-	public String error500() throws IOException {
+	public String error500() throws InternalException {
 		
 		Resource resource = new ClassPathResource("config/mybatis/sql-map-config-nofile.xml");
-		resource.getInputStream();
+		try {
+			resource.getInputStream();
+		} catch (IOException e) {
+			throw new InternalException();
+		}
 		
 		return "mvc/view";
 	}
