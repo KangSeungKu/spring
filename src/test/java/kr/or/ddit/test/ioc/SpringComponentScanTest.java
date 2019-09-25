@@ -10,6 +10,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.test.context.web.WebAppConfiguration;
 
 import kr.or.ddit.user.dao.IUserDao;
 import kr.or.ddit.user.service.IUserService;
@@ -36,7 +37,7 @@ public class SpringComponentScanTest {
 	* Method 설명 : 스프링 빈 컴포넌트 스캔 테스트
 	*/
 	@Test
-	public void springBeanComponentScnaTest() {
+	public void springBeanComponentScanTest() {
 		/***Given***/
 
 		/***When***/
